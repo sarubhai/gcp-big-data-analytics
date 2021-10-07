@@ -1,4 +1,4 @@
-# Multi-Cloud GCP Infra:
+# GCP Infrastructure deployment to explore Big Data Analytics
 
 Deploys various GCP resources using Terraform to get started with Big Data Analytics.
 
