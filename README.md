@@ -17,30 +17,36 @@ Deploys various GCP resources using Terraform to get started with Big Data Analy
 
 ### Update Sales Amount
 
+```
 UPDATE `ds_gcp_bda.sales` sales
-SET amount = sales.quantity \* product.price
+SET amount = sales.quantity * product.price
 FROM `ds_gcp_bda.product` product
 WHERE sales.product_id = product.id;
+```
 
 ### Create Denormalized Sales Fact View
 
-create view `ds_gcp_bda.sales_fact` as
-select
+```
+CREATE VIEW `ds_gcp_bda.sales_fact` AS
+SELECT
 product.category car_categry, product.make car_make, product.model car_model, product.color car_color,
 showroom.name showroon_name, showroom.staff_count showroom_emp_cnt, showroom.state showroom_state,
 customer.gender customer_gender, customer.state customer_state,
 sales.quantity sales_quantity, sales.amount sales_amount, sales.discount sales_discount, sales.card_type card_type, sales.txn_date sales_txn_date
-from `ds_gcp_bda.sales` sales
-inner join `ds_gcp_bda.product` product
-on sales.product_id = product.id
-inner join `ds_gcp_bda.showroom` showroom
-on sales.showroom_id = showroom.id
-inner join `ds_gcp_bda.customer` customer
-on sales.customer_id = customer.id;
+FROM `ds_gcp_bda.sales` sales
+INNER JOIN `ds_gcp_bda.product` product
+ON sales.product_id = product.id
+INNER JOIN `ds_gcp_bda.showroom` showroom
+ON sales.showroom_id = showroom.id
+INNER JOIN `ds_gcp_bda.customer` customer
+ON sales.customer_id = customer.id;
+```
 
 ### Sales Fact View Data Preview
 
-select \* from `ds_gcp_bda.sales_fact` limit 10;
+```
+select * from `ds_gcp_bda.sales_fact` limit 10;
+```
 
 ### Visualize Data using DataStudio
 
