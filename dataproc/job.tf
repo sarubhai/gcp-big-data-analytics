@@ -2,6 +2,7 @@
 # Owner: Saurav Mitra
 # Description: This terraform config will create Dataproc Jobs
 
+/*
 resource "google_dataproc_job" "copy_data_from_GS_to_HDFS" {
   project = var.project_id
   region  = google_dataproc_cluster.dataproc_gcp_bda.region
@@ -27,7 +28,7 @@ resource "google_dataproc_job" "copy_data_from_GS_to_HDFS" {
   }
 }
 
-/*
+
 resource "google_dataproc_job" "create_load_Hive_Dim_Tables_create_Hive_Fact_Tables" {
   project = var.project_id
   region  = google_dataproc_cluster.dataproc_gcp_bda.region
@@ -59,7 +60,7 @@ resource "google_dataproc_job" "Pig_ETL_Hive_Fact_Tables" {
   }
 
   labels = {
-    name    = "create-load-hive-dim-tables_create-hive-fact-tables"
+    name    = "pig-etl-hive-fact-tables"
     owner   = var.owner
     project = var.prefix
   }
@@ -68,7 +69,7 @@ resource "google_dataproc_job" "Pig_ETL_Hive_Fact_Tables" {
     query_file_uri = "gs://${var.cs_datagen_bucket_name}/scripts/etl.pig"
   }
 }
-*/
+
 
 resource "google_dataproc_job" "PySpark_create_Sales_View" {
   project = var.project_id
@@ -89,3 +90,5 @@ resource "google_dataproc_job" "PySpark_create_Sales_View" {
     main_python_file_uri = "gs://${var.cs_datagen_bucket_name}/scripts/etl.py"
   }
 }
+
+*/

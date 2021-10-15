@@ -14,7 +14,7 @@ Deploys various GCP resources using Terraform to get started with Big Data Analy
 - 5 BigQuery Tables
 - 5 BigQuery Data Transfer Configs
 - 1 Dataproc Cluster
-- 4 Dataproc Job
+- 1 Dataproc Workflow Template with 4 Dataproc Jobs
 
 ## BigQuery
 
@@ -57,6 +57,12 @@ Next you can use DataStudio, to create Data Source from the BigQuery View & gene
 Ref: https://datastudio.google.com/
 
 ![Dashboard](bda-datastudio.png "Car Sales")
+
+## Dataproc
+
+Run the Workflow Template
+
+Verify & analyze the data in Hive tables.
 
 ## Usage
 

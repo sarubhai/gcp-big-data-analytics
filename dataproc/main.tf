@@ -41,9 +41,9 @@ resource "google_dataproc_cluster" "dataproc_gcp_bda" {
     gce_cluster_config {
       zone = var.zone
       # network = var.vpc_name
-      subnetwork = var.public_subnet_name.0
+      subnetwork = var.private_subnet_name.0
       # tags       = ["bda"]
-      internal_ip_only = false
+      internal_ip_only = true
 
       # service_account = google_service_account.default.email
       # service_account_scopes = [
