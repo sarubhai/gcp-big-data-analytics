@@ -45,7 +45,63 @@ resource "google_storage_bucket" "resultset_bucket" {
 
 # Upload Sample Dataset Files
 resource "google_storage_bucket_object" "datafiles" {
-  for_each = fileset(path.module, "datasets/*.psv")
+  for_each = fileset(path.module, "**/*.psv")
+
+  bucket = google_storage_bucket.datagen_bucket.name
+  name   = each.value
+  source = "${path.module}/${each.value}"
+
+  metadata = {
+    owner   = var.owner
+    project = var.prefix
+  }
+}
+
+# Upload Dataproc Initialization Script Files
+resource "google_storage_bucket_object" "init_script_files" {
+  for_each = fileset(path.module, "**/*.sh")
+
+  bucket = google_storage_bucket.datagen_bucket.name
+  name   = each.value
+  source = "${path.module}/${each.value}"
+
+  metadata = {
+    owner   = var.owner
+    project = var.prefix
+  }
+}
+
+# Upload Hive Script Files
+resource "google_storage_bucket_object" "hive_script_files" {
+  for_each = fileset(path.module, "scripts/*.hql")
+
+  bucket = google_storage_bucket.datagen_bucket.name
+  name   = each.value
+  source = "${path.module}/${each.value}"
+
+  metadata = {
+    owner   = var.owner
+    project = var.prefix
+  }
+}
+
+# Upload Pig Script Files
+resource "google_storage_bucket_object" "pig_script_files" {
+  for_each = fileset(path.module, "scripts/*.pig")
+
+  bucket = google_storage_bucket.datagen_bucket.name
+  name   = each.value
+  source = "${path.module}/${each.value}"
+
+  metadata = {
+    owner   = var.owner
+    project = var.prefix
+  }
+}
+
+# Upload Python Spark Files
+resource "google_storage_bucket_object" "spark_script_files" {
+  for_each = fileset(path.module, "scripts/*.py")
 
   bucket = google_storage_bucket.datagen_bucket.name
   name   = each.value

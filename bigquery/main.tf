@@ -17,4 +17,3 @@ resource "google_bigquery_dataset" "ds_gcp_bda" {
     project = var.prefix
   }
 }
-

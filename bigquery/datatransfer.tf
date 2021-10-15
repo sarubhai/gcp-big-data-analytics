@@ -16,7 +16,7 @@ resource "google_bigquery_data_transfer_config" "customer_dtc" {
 
   params = {
     destination_table_name_template = google_bigquery_table.customer_tbl.table_id
-    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/customer.psv"
+    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/customer/customer.psv"
     write_disposition               = "APPEND"
     delete_source_files             = false
     file_format                     = "CSV"
@@ -43,7 +43,7 @@ resource "google_bigquery_data_transfer_config" "product_dtc" {
 
   params = {
     destination_table_name_template = google_bigquery_table.product_tbl.table_id
-    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/product.psv"
+    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/product/product.psv"
     write_disposition               = "APPEND"
     delete_source_files             = false
     file_format                     = "CSV"
@@ -70,7 +70,7 @@ resource "google_bigquery_data_transfer_config" "showroom_dtc" {
 
   params = {
     destination_table_name_template = google_bigquery_table.showroom_tbl.table_id
-    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/showroom.psv"
+    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/showroom/showroom.psv"
     write_disposition               = "APPEND"
     delete_source_files             = false
     file_format                     = "CSV"
@@ -97,7 +97,7 @@ resource "google_bigquery_data_transfer_config" "sales_dtc" {
 
   params = {
     destination_table_name_template = google_bigquery_table.sales_tbl.table_id
-    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/sales.psv"
+    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/sales/sales.psv"
     write_disposition               = "APPEND"
     delete_source_files             = false
     file_format                     = "CSV"
@@ -124,7 +124,7 @@ resource "google_bigquery_data_transfer_config" "stocks_dtc" {
 
   params = {
     destination_table_name_template = google_bigquery_table.stocks_tbl.table_id
-    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/stocks.psv"
+    data_path_template              = "gs://${var.cs_datagen_bucket_name}/datasets/stocks/stocks.psv"
     write_disposition               = "APPEND"
     delete_source_files             = false
     file_format                     = "CSV"

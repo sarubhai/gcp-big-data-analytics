@@ -7,11 +7,14 @@ Deploys various GCP resources using Terraform to get started with Big Data Analy
 - 1 Virtual Private Cloud Network
 - 3 Private Subnets
 - 3 Public Subnets
+- 1 NAT Gateway
 - 1 Firewall Rule (Access for Big Data Analytics tagged resources)
 - 2 GCS Bucket (5 sample datasets- generated via https://www.mockaroo.com/)
 - 1 BigQuery Dataset
 - 5 BigQuery Tables
 - 5 BigQuery Data Transfer Configs
+- 1 Dataproc Cluster
+- 4 Dataproc Job
 
 ## BigQuery
 
